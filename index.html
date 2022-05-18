@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="Shyam" />
+	<link rel="icon" type="image/x-icon" href="https://cutewallpaper.org/21/logo-deadpool/Deadpool-Logo-Emblem-Graphics-design-SVG-DXF-vectordesign.jpg">
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+      rel="stylesheet"
+    />
+
+    <title>SQL Syntax</title>
+	<style>
+	.isotope-item {
+    }
+	pre{color:#ffffff !important;}
+	b, strong {
+    font-weight: bolder;
+    color: gold;
+}
+	
+	</style>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="assets/css/templatemo-style.css" />
+    <link rel="stylesheet" href="assets/css/owl.css" />
+    <link rel="stylesheet" href="assets/css/lightbox.css" />
+  </head>
+
+  <body>
+    <div id="page-wraper">
+      <!-- Sidebar Menu -->
+      <div class="responsive-nav">
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <div id="menu" class="menu">
+          <i class="fa fa-times" id="menu-close"></i>
+          <div class="container">
+            <div class="author-content">
+              <h4>SQL</h4>
+              <span>TOPICS</span>
+            </div>
+            <nav class="main-nav" role="navigation">
+              <ul class="main-menu">
+                <li><a href="#section1">DDL (Data Definition Language)</a></li>
+                <li><a href="#section2">DQL (Data Query Language)</a></li>
+                <li><a href="#section3">DML (Data Manipulation Language)</a></li>
+                <li><a href="#section4">DCL & TCL</a></li>
+                <li><a href="#section5">Advanced</a></li>
+              </ul>
+            </nav>
+            
+            <div class="copyright-text"> 
+              <p>Copyright 2022 DEADPOOL</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section my-work" data-section="section1">
+        <div class="container">
+          <div class="section-heading">
+            <h2>SQL (RDBMS)</h2>
+            <div class="line-dec"></div>
+            <span
+              >RDBMS stands for Relational Database Management System. RDBMS is the basis for SQL, and for all modern database systems like MS SQL Server, IBM DB2, Oracle, MySQL, and Microsoft Access.</span
+            >
+			<p></p>
+			<b>
+			<h3>DDL (Data Definition Language)</h3>
+			----------------------------------------</b>
+          </div>
+          <div class="row">
+            <div class="isotope-wrapper">
+              <form class="isotope-toolbar">
+                <label
+                  ><input
+                    type="radio"
+                    data-type="*"
+                    checked=""
+                    name="isotope-filter"
+                  />
+                  <span>ALL</span></label
+                >
+				
+				<label
+                  ><input
+                    type="radio"
+                    data-type="CREATE"
+                    name="isotope-filter"
+                  />
+                  <span>CREATE</span></label
+                >
+				
+                <label
+                  ><input
+                    type="radio"
+                    data-type="DROP"
+                    name="isotope-filter"
+                  />
+                  <span>DROP</span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    data-type="ALTER"
+                    name="isotope-filter"
+                  />
+                  <span>ALTER</span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    data-type="TRUNCATE"
+                    name="isotope-filter"
+                  />
+                  <span>TRUNCATE</span></label
+                >
+              </form>
+              <div class="isotope-box">
+                <div class="isotope-item" data-type="CREATE" style="width: 100% !important;">
+                  <figure class="">
+<pre>
+<b>CREATE
+-------</b>
+<span>This command is used to create the database or its objects (like table, index, function, views, store procedure, and triggers).</span>
+
+<b>DATABASE creation
+------------------</b>
+CREATE DATABASE &lt;DB name&gt;;
+
+<b>TABLE creation
+--------------</b>
+CREATE TABLE &lt;TABLE name&gt; (
+	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt;
+	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt;
+	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt;
+);
+
+ </pre>                   
+                  </figure>
+				  
+                </div>
+				
+				<div class="isotope-item" data-type="DROP"  style="width: 100% !important;">
+                  <figure class="">
+<pre>
+<b>DROP
+-------</b>
+<span>This command is used to delete objects from the database.</span>
+
+<b>DROP DATABASE
+------------------</b>
+DROP DATABASE &lt;DB NAME&gt;;
+
+<b>DROP TABLE
+--------------</b>
+DROP TABLE &lt;TABLE NAME&gt;;
+
+ </pre>                   
+                    
+                  </figure>
+                </div>
+				
+				<div class="isotope-item" data-type="ALTER"  style="width: 100% !important;">
+                  <figure class="">
+<pre>
+<b>ALTER
+-------</b>
+<span>This is used to alter the structure of the database.</span>
+
+<b>ADD
+----</b>
+ALTER TABLE &lt;TABLE name&gt;
+ADD &lt;COLUMN name&gt; &lt;DATATYPE&gt;&lt;length&gt;;
+
+<b>CHANGE (ORCLE)
+-----------</b>
+ALTER TABLE &lt;TABLE NAME&gt;
+CHANGE COLUMN &lt;OLD COLUMN name&gt; &lt;NEW COLUMN NAME&gt; &lt;DATA TYPE LENTH&gt;;
+
+<b>DROP</b>
+ALTER TABLE &lt;TABLE NAME&gt;
+DROP COLUMN &lt;COLUMN name&gt;;
+
+<b>RENAME (SQL SERVER)
+-------------------</b>
+sp_rename '&lt;TABLE&gt;.&lt;OLD COLUMN name&gt;' , '&lt;NEW COLUMN name&gt;', 'column';
+(or)
+EXEC sp_rename '&lt;TABLE&gt;.&lt;OLD COLUMN name&gt;' , '&lt;NEW COLUMN name&gt;', 'column';
+
+<b>CHANGE DATATYPE SIZE
+--------------------</b>
+ALTER table &lt;TABLENAME&gt; ALTER column &lt;OLD COLUMN NAME&gt; &lt;DATA TYPE&gt;&lt;NEW SIZE&gt;;
+
+ </pre> 
+                    
+                  </figure>
+                </div>
+				
+				<div class="isotope-item" data-type="TRUNCATE" style="width: 100% !important;">
+                  <figure class="">
+ <pre> 
+<b>TRUNCATE
+--------</b>
+<span>This is used to remove all records from a table, including all spaces allocated for the records are removed.</span>
+<b>
+Truncate Table
+--------------</b>
+TRUNCATE TABLE &lt;TABLE NAME&gt;
+ </pre> 
+                  </figure>
+                </div>
+
+                
+
+                
+
+                
+
+                
+
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section my-work" data-section="section2">
+        <div class="container">
+          <div class="section-heading">
+            <b>
+			<h3>DQL (Data Query Language)</h3>
+			----------------------------------------</b>
+            <div class=""></div>
+            
+          </div>
+          <div class="row">
+            <div class="isotope-wrapper">
+              <form class="isotope-toolbar">
+                <label
+                  ><input
+                    type="radio"
+                    data-type="*"
+                    checked=""
+                    name="isotope-filter"
+                  />
+                  <span>all</span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    data-type="SELECT "
+                    name="isotope-filter"
+                  />
+                  <span>SELECT </span></label
+                >
+              </form>
+              <div class="isotope-box">
+				<div class="isotope-item" data-type="SELECT " style="width: 100% !important;">
+                  <figure class="">
+                    <pre>
+<b>SELECT
+-------</b>
+<span>It is used to retrieve data from the database.</span>
+
+
+<b>SELECT * ('*' means All)
+----------------------</b>
+SELECT * FROM &lt;TABLE name&gt;;
+
+
+<b>SELECT few Columns
+----------------------</b>
+SELECT &lt;column_name&gt;, &lt;column_name&gt;, &lt;column_name&gt; FROM &lt;TABLE name&gt;;
+
+<b>SELECT few Columns WITH WHERE Condition
+-----------------------------------</b>
+SELECT &lt;column_name&gt;, &lt;column_name&gt;, &lt;column_name&gt; FROM &lt;TABLE name&gt; WHERE &lt;column_name&gt; = &lt;VALUE&gt;;
+
+ </pre>  
+                  </figure>
+                </div>
+			  
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section my-work" data-section="section3">
+        <div class="container">
+          <div class="section-heading">
+            <b><h3>DML (Data Manipulation Language)</h3>
+			----------------------------------------</b>
+            <div class="line-dec"></div>
+            
+          </div>
+          <div class="row">
+            <div class="isotope-wrapper">
+              <form class="isotope-toolbar">
+                <label
+                  ><input
+                    type="radio"
+                    data-type="*"
+                    checked=""
+                    name="isotope-filter"
+                  />
+                  <span>all</span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    data-type="INSERT"
+                    name="isotope-filter"
+                  />
+                  <span>INSERT</span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    data-type="UPDATE"
+                    name="isotope-filter"
+                  />
+                  <span>UPDATE</span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    data-type="DELETE"
+                    name="isotope-filter"
+                  />
+                  <span>DELETE</span></label
+                >
+              </form>
+              <div class="isotope-box">
+                <div class="isotope-item" data-type="UPDATE" style="width: 100% !important;">
+                  <figure class="">
+                    <pre>
+<b>SELECT
+-------</b>
+<span>It is used to update existing data within a table.</span>
+
+
+<b>UPDATE data in TABLE
+----------------------</b>
+UPDATE &lt;TABLE name&gt; 
+SET &lt;COLUMN NAME&gt; = &lt;UPDATE VALUE&gt;
+WHERE &lt;COLUMN NAME&gt; = &lt;VALUE&gt; (or) WHERE &lt;COLUMN NAME&gt; IS NULL
+
+
+
+ </pre>  
+                  </figure>
+                </div>
+
+                <div class="isotope-item" data-type="INSERT" style="width: 100% !important;">
+                  <figure class="">
+                    <pre>
+<b>INSERT
+-------</b>
+<span>It is used to insert data into a table.</span>
+
+
+<b>INSERT SINGLE COLUMN
+----------------------</b>
+INSERT INTO &lt;TABLE NAME&gt; (&lt;COLUMN 1&gt;, &lt;COLUMN 2&gt;,....)
+VALUES ('&lt;VALUES&gt;', '&lt;VALUES&gt;', '&lt;VALUES&gt;', '&lt;VALUES&gt;', .....)
+
+
+<b>INSERT MULTIPUL COLUMNS
+----------------------</b>
+INSERT INTO &lt;TABLE NAME&gt; (&lt;COLUMN 1&gt;, &lt;COLUMN 2&gt;,....)
+VALUES 
+('&lt;VALUES&gt;', '&lt;VALUES&gt;', '&lt;VALUES&gt;', '&lt;VALUES&gt;', .....),
+('&lt;VALUES&gt;', '&lt;VALUES&gt;', '&lt;VALUES&gt;', '&lt;VALUES&gt;', .....),
+('&lt;VALUES&gt;', '&lt;VALUES&gt;', '&lt;VALUES&gt;', '&lt;VALUES&gt;', .....),
+('&lt;VALUES&gt;', '&lt;VALUES&gt;', '&lt;VALUES&gt;', '&lt;VALUES&gt;', .....),
+.
+.
+.
+.
+.
+
+
+ </pre>  
+                  </figure>
+                </div>
+
+                <div class="isotope-item" data-type="DELETE" style="width: 100% !important;">
+                  <figure class="">
+                    <pre>
+<b>DELETE
+-------</b>
+<span>It is used to delete records from a database table.</span>
+
+
+<b>DELETE DATA Based ON Condition
+----------------------</b>
+DELETE FROM &lt;TABLE NAME&gt;
+WHERE &lt;Condition&gt; (Like age &lt; 50)
+
+
+<b>DELETE all DATA
+----------------------</b>
+DELETE FROM &lt;TABLE NAME&gt;
+
+
+ </pre>  
+                  </figure>
+                </div>
+
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section my-work" data-section="section4">
+        <div class="container">
+          <div class="section-heading">
+            <b><h3>DCL (Data Control Language), <br /> TCL (Transaction Control Language)</h3>
+			----------------------------------------</b>
+            <div class="line-dec"></div>
+            
+          </div>
+          <div class="row">
+            <div class="isotope-wrapper">
+              <form class="isotope-toolbar">
+                <label
+                  ><input
+                    type="radio"
+                    data-type="*"
+                    checked=""
+                    name="isotope-filter"
+                  />
+                  <span>all</span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    data-type="GRANT"
+                    name="isotope-filter"
+                  />
+                  <span>GRANT</span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    data-type="REVOKE"
+                    name="isotope-filter"
+                  />
+                  <span>REVOKE</span></label
+                >
+               <label
+                  ><input
+                    type="radio"
+                    data-type="COMMIT"
+                    name="isotope-filter"
+                  />
+                  <span>COMMIT</span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    data-type="ROLLBACK"
+                    name="isotope-filter"
+                  />
+                  <span>ROLLBACK</span></label
+                >
+				<label
+                  ><input
+                    type="radio"
+                    data-type="SAVEPOINT"
+                    name="isotope-filter"
+                  />
+                  <span>SAVEPOINT</span></label
+                >
+              </form>
+              <div class="isotope-box">
+                <div class="isotope-item" data-type="GRANT" style="width: 100% !important;">
+                  <figure class="">
+                    <pre>
+
+ </pre>  
+                  </figure>
+                </div>
+
+                <div class="isotope-item" data-type="REVOKE" style="width: 100% !important;">
+                  <figure class="">
+                    <pre>
+
+
+
+ </pre>  
+                  </figure>
+                </div>
+
+                <div class="isotope-item" data-type="DELETE" style="width: 100% !important;">
+                  <figure class="">
+                    <pre>
+
+
+ </pre>  
+                  </figure>
+                </div>
+				<div class="isotope-item" data-type="ROLLBACK" style="width: 100% !important;">
+                  <figure class="">
+                    <pre>
+
+
+
+ </pre>  
+                  </figure>
+                </div>
+
+                <div class="isotope-item" data-type="COMMIT" style="width: 100% !important;">
+                  <figure class="">
+                    <pre>
+
+
+ </pre>  
+                  </figure>
+                </div>
+				
+				<div class="isotope-item" data-type="SAVEPOINT" style="width: 100% !important;">
+                  <figure class="">
+                    <pre>
+
+
+ </pre>  
+                  </figure>
+                </div>
+
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+	<section class="section my-work" data-section="section5">
+        <div class="container">
+          <div class="section-heading">
+            <b><h3>Advanced topics</h3>
+			----------------------------------------</b>
+            <div class="line-dec"></div>
+            
+          </div>
+          <div class="row">
+            <div class="isotope-wrapper">
+              <form class="isotope-toolbar">
+                <label
+                  ><input
+                    type="radio"
+                    data-type="*"
+                    checked=""
+                    name="isotope-filter"
+                  />
+                  <span>all</span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    data-type="Contraines"
+                    name="isotope-filter"
+                  />
+                  <span>Contraines</span></label
+                >
+				<label
+                  ><input
+                    type="radio"
+                    data-type="WHERE"
+                    name="isotope-filter"
+                  />
+                  <span>WHERE Condition</span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    data-type="Functions"
+                    name="isotope-filter"
+                  />
+                  <span>Functions</span></label
+                >
+				
+				<label
+                  ><input
+                    type="radio"
+                    data-type="Joins"
+                    name="isotope-filter"
+                  />
+                  <span>Joins</span></label
+                >
+				
+				<label
+                  ><input
+                    type="radio"
+                    data-type="Set"
+                    name="isotope-filter"
+                  />
+                  <span>Set Operators</span></label
+                >
+              </form>
+              <div class="isotope-box">
+                <div class="isotope-item" data-type="Contraines" style="width: 100% !important;">
+                  <figure class="">
+                    <pre>
+<b>Contraines
+----------</b>
+primary KEY
+foreign KEY
+not NULL
+unique
+CHECK
+
+
+<b>primary KEY
+------------------</b>
+CREATE TABLE &lt;TABLE name&gt; (
+	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt; PRIMARY KEY IDENTIFIED 
+	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt; not NULL,
+	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt;
+);
+
+
+<b>like
+-----</b>
+create table student
+(
+	id int auto_increment,
+	name varchar(30) not null,
+	gmail varchar(30) not null,
+	age int,
+	unique(gmail),
+	check(age&gt;12),
+	primary key(id)
+)
+
+
+<b>primary KEY
+------------------</b>
+CREATE TABLE &lt;TABLE name&gt; (
+	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt; PRIMARY KEY IDENTIFIED 
+	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt; not NULL,
+	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt;
+);
+
+<b>we can generate auto values
+-----------------------------</b>
+CREATE TABLE &lt;TABLE name&gt; (
+	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt; PRIMARY KEY AUTO_INCREMENT 
+	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt;,
+	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt;
+);
+
+<b>AUTO_INCREMENT won't work in SQL server insted of AUTO_INCREMENT we can USE  IDENTIFIED in SQL server
+--------------------------------------------------------------------------------------------------------</b>
+CREATE TABLE &lt;TABLE name&gt; (
+	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt; PRIMARY KEY IDENTIFIED 
+	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt;,
+	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt;
+);
+
+<b>FOREIGN KEY TABLE
+-----------------</b>
+CREATE TABLE &lt;TABLE name&gt; (
+	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt; foreign key references &lt;PRIMARY KEY TABLE NAME&gt;(PRIMARY KEY COLUMN NAME),
+	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt;,
+	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt;
+);
+
+<b>like
+------</b>
+create table stu_details (
+	stu_id int not null foreign key references students(stu_roll),
+	stu_parent_name varchar(15),
+	stu_join_date varchar(11),
+	stu_city varchar(15)
+)
+
+ </pre>  
+                  </figure>
+                </div>
+				<div class="isotope-item" data-type="WHERE"  style="width: 100% !important;">
+                  <figure class="">
+<pre>
+<b>WHERE Condition
+--------------</b>
+SELECT * FROM &lt;TABLE NAME&gt; WHERE WHERE &lt;COLUMN NAME&gt; = &lt;VALUE&gt;
+
+<b>WHERE WITH Equality or &lt; or &gt; or &lt;= or &gt;= or !=(&lt;&gt; and != both are same), AND, OR, BETWEEN, in, lIKE
+------------------------------------------------------------------------------------------------------------------------</b>
+select * FROM &lt;TABLE NAME&gt; 
+WHERE &lt;COLUMN NAME&gt; = &lt;VALUE&gt;,
+WHERE &lt;COLUMN NAME&gt; &gt; &lt;VALUE&gt;,
+WHERE &lt;COLUMN NAME&gt; &lt; &lt;VALUE&gt;,
+WHERE &lt;COLUMN NAME&gt; &lt;= &lt;VALUE&gt;,
+WHERE &lt;COLUMN NAME&gt; &gt;= &lt;VALUE&gt;,
+WHERE &lt;COLUMN NAME&gt; != &lt;VALUE&gt;,
+WHERE &lt;COLUMN NAME&gt; LIKE &lt;%VALUE&gt;, (or) &lt;%VALUE%&gt;, (or) &lt;_VALUE&gt;...
+WHERE &lt;COLUMN NAME&gt; &lt;&gt; &lt;VALUE&gt;,
+WHERE &lt;COLUMN NAME&gt; BETWEEN &lt;VALUE&gt;,
+WHERE &lt;COLUMN NAME&gt; in &lt;VALUE,VALUE&gt;,
+WHERE &lt;COLUMN NAME&gt; BETWEEN &lt;VALUE&gt; AND &lt;COLUMN NAME&gt; &lt; &lt;VALUE&gt;,
+WHERE &lt;COLUMN NAME&gt; BETWEEN &lt;VALUE&gt; OR &lt;COLUMN NAME&gt; &lt; &lt;VALUE&gt;
+
+ </pre>                   
+                    
+                  </figure>
+                </div>
+				<div class="isotope-item" data-type="Functions"  style="width: 100% !important;">
+                  <figure class="">
+<pre>
+<b>Functions
+--------------</b>
+SQL Server has many built-in functions.
+
+This reference contains string, numeric, date, conversion, and some advanced functions in SQL Server.
+
+<b>substring
+-----------</b>
+Extract 3 characters from a string, starting in position 1
+
+SELECT SUBSTRING(&lt;COLUMN NAME&gt;, 1, 3) as substing From &lt;TABLE NAME&gt;;
+
+<b>instring (or) instr
+-----------</b>
+The INSTR() function returns the position of the first occurrence of a string in another string.
+
+SELECT INSTR(&lt;COLUMN NAME&gt;, "any alphabit like a or b") as instr From &lt;TABLE NAME&gt;;
+
+
+<b>initcap (it works in Oracle only)
+----------</b>
+The Oracle INITCAP() function sets the first letter of each word in uppercase, 
+all other letters in lowercase. Words are delimited by white space or characters that are not alphanumeric.
+
+SELECT initcap(&lt;COLUMN NAME&gt;) as capnames from &lt;TABLE NAME&gt;
+<b>like
+-------</b>
+select initcap(CustomerName) as names from accounts;
+
+<b>like initcap in sql server
+------------------------------</b>
+SELECT &lt;COLUMN NAME&gt;, Upper(left(&lt;COLUMN NAME&gt;,1))+lower(substring(&lt;COLUMN NAME&gt;,2,10)) as names from &lt;TABLE NAME&gt;;
+<b>like
+-------</b>
+select CustomerName, upper(left(CustomerName,1))+lower(substring(customername,2,10)) as names from accounts;
+
+<b>length
+--------</b>
+select &lt;COLUMN NAME&gt;, Len(&lt;COLUMN NAME&gt;) from &lt;TABLE NAME&gt;
+
+<b>ltrim
+--------</b>
+select &lt;COLUMN NAME&gt;, ltrim(&lt;COLUMN NAME&gt;) from &lt;TABLE NAME&gt;
+
+<b>rtrim
+--------</b>
+select &lt;COLUMN NAME&gt;, rtrim(&lt;COLUMN NAME&gt;) from &lt;TABLE NAME&gt;
+
+<b>trim
+--------</b>
+select &lt;COLUMN NAME&gt;, trim(&lt;COLUMN NAME&gt;) from &lt;TABLE NAME&gt;
+
+<b>replace
+----------</b>
+SELECT REPLACE(&lt;COLUMN NAME&gt;, 'alphabit','otheralphabit') FROM &lt;TABLE NAME&gt;
+<b>like
+------</b>
+SELECT REPLACE(Branch_name, 'd','derabad') FROM Accounts
+
+<b>round
+--------</b>
+SELECT ROUND(Branch_name, value) AS RoundValue FROM &lt;TABLE NAME&gt;;
+<b>like
+------</b>
+SELECT ROUND(235.415, 2) AS RoundValue;
+
+<b>RANK()
+--------</b>
+ SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, RANK() OVER(ORDER BY DESC (or) ASC) 
+  as &lt;ANY NAME&gt; FROM &lt;TABLE NAME&gt;
+  
+<b>trunc
+-----</b>
+
+
+<b>floor
+------</b>
+SELECT FLOOR(&lt;COLUMN NAME&gt;) AS FloorValue FROM &lt;TABLE NAME&gt;;
+<b>like
+-------</b>
+SELECT FLOOR(25.75) AS FloorValue;
+
+<b>ceil
+-------</b>
+SELECT CEILING(&lt;COLUMN NAME&gt;) AS FloorValue FROM &lt;TABLE NAME&gt;;
+<b>like
+------</b>
+SELECT CEILING(25.75) AS CeilValue;
+
+<b>rpad (ORCLE)
+-------------</b>
+SELECT RPAD(&lt;COLUMN NAME&gt;, &lt;Value&gt;, "&lt;Alphabits&gt;") FROM &lt;TABLE NAME&gt;;
+
+<b>like
+----</b>
+SELECT RPAD("SQL Tutorial", 20, "ABC");
+
+<b>Lpad (ORCLE)
+-------------</b>
+SELECT Lpad(&lt;COLUMN NAME&gt;, &lt;Value&gt;, "&lt;Alphabits&gt;") FROM &lt;TABLE NAME&gt;;
+
+<b>like
+----</b>
+SELECT RPAD("SQL Tutorial", 20, "ABC");
+
+<b>concat
+---------</b>
+SELECT CONCAT('&lt;COLUMN NAME&gt;', '&lt;COLUMN NAME&gt;') FROM &lt;TABLE NAME&gt;;
+<b>like
+-------</b>
+SELECT CONCAT('W3Schools', '.com');
+
+
+<b>NVL
+------</b>
+<b>NVL2
+-------</b>
+ </pre>                   
+                    
+                  </figure>
+                </div>
+         
+<div class="isotope-item" data-type="Joins"  style="width: 100% !important;">
+                  <figure class="">
+<pre>
+<b>Joins
+--------------</b>
+INNER JOIN
+LEFT JOIN
+RIGHT JOIN
+FULL JOIN
+
+<b>inner JOIN
+----------</b>
+SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, ..
+	FROM &lt;FIRST TABLE NAME&gt; 
+	INNER JOIN  &lt;SECOND TABLE NAME&gt;
+	ON &lt;FIRST TABLE NAME&gt; &lt;COLUMN ID&gt; = &lt;SECOND TABLE NAME&gt; &lt;COLUMN ID&gt; 
+	
+
+<b>LIKE
+------</b>
+select age, name, marks from student_table
+	inner join marks_table
+	on student_table.id = marks_table.id
+
+<b>LEFT JOIN
+----------</b>
+SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, ..
+	FROM &lt;FIRST TABLE NAME&gt; 
+	LEFT JOIN  &lt;SECOND TABLE NAME&gt;
+	ON &lt;FIRST TABLE NAME&gt; &lt;COLUMN ID&gt; = &lt;SECOND TABLE NAME&gt; &lt;COLUMN ID&gt; 
+	
+
+<b>LIKE
+------</b>
+select age, name, marks from student_table
+	LEFT join marks_table
+	on student_table.id = marks_table.id
+
+
+<b>RIGHT JOIN
+----------</b>
+SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, ..
+	FROM &lt;FIRST TABLE NAME&gt; 
+	RIGHT JOIN  &lt;SECOND TABLE NAME&gt;
+	ON &lt;FIRST TABLE NAME&gt; &lt;COLUMN ID&gt; = &lt;SECOND TABLE NAME&gt; &lt;COLUMN ID&gt; 
+	
+
+<b>LIKE
+------</b>
+select age, name, marks from student_table
+	RIGHT join marks_table
+	on student_table.id = marks_table.id
+
+
+<b>FULL JOIN
+----------</b>
+SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, ..
+	FROM &lt;FIRST TABLE NAME&gt; 
+	FULL JOIN  &lt;SECOND TABLE NAME&gt;
+	ON &lt;FIRST TABLE NAME&gt; &lt;COLUMN ID&gt; = &lt;SECOND TABLE NAME&gt; &lt;COLUMN ID&gt; 
+	
+
+<b>LIKE
+------</b>
+select age, name, marks from student_table
+	FULL join marks_table
+	on student_table.id = marks_table.id
+
+
+<b>SELF JOIN
+----------</b>
+-&gt; same table join  to compare like marks or grade
+SELECT * FROM &lt;FIRST TABLE NAME&gt; as T1
+	INNER JOIN  &lt;FIRST TABLE NAME&gt; as T2
+	ON T1.&lt;COLUMN ID&gt; &lt;  T2.&lt;COLUMN ID&gt; 
+	
+<b>LIKE
+------</b>
+
+select * student_table as t1
+	inner join student_table as t2
+	on t1.marks &lt; t2.marks
+
+
+
+ </pre>                   
+                    
+                  </figure>
+                </div>		 
+<div class="isotope-item" data-type="Set"  style="width: 100% !important;">
+                  <figure class="">
+<pre>
+<b>Set Operators
+--------------</b>
+There are certain rules which must be followed to perform operations using SET operators in SQL. Rules are as follows:
+
+--> The number and order of columns must be the same.
+--> Data types must be compatible.
+
+Union
+Union all
+Intersect
+Minus
+
+<b>Union
+----------</b>
+SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, .. FROM &lt;FIRST TABLE NAME&gt;
+UNION
+SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, .. FROM &lt;SECOND TABLE NAME&gt;;
+
+<b>LIKE
+------</b>
+SELECT name FROM customers_dec
+UNION
+SELECT name FROM customers_jan;
+
+
+<b>Union all
+----------</b>
+SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, .. FROM &lt;FIRST TABLE NAME&gt;
+UNION ALL
+SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, .. FROM &lt;SECOND TABLE NAME&gt;;
+
+<b>LIKE
+------</b>
+SELECT name FROM customers_dec
+UNION ALL
+SELECT name FROM customers_jan;
+
+<b>Intersect
+----------</b>
+SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, .. FROM &lt;FIRST TABLE NAME&gt;
+INTERSECT
+SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, .. FROM &lt;SECOND TABLE NAME&gt;;
+
+<b>LIKE
+------</b>
+SELECT name FROM customers_dec
+INTERSECT
+SELECT name FROM customers_jan;
+
+<b>Minus (it works in orcle)
+----------</b>
+SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, .. FROM &lt;FIRST TABLE NAME&gt;
+MINUS
+SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, .. FROM &lt;SECOND TABLE NAME&gt;;
+
+<b>LIKE
+------</b>
+SELECT name FROM customers_dec
+MINUS
+SELECT name FROM customers_jan;
+
+<b>EXCEPT (insted of MINUS in SQL server)
+----------</b>
+SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, .. FROM &lt;FIRST TABLE NAME&gt;
+EXCEPT
+SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, .. FROM &lt;SECOND TABLE NAME&gt;;
+
+<b>LIKE
+------</b>
+SELECT name FROM customers_dec
+EXCEPT
+SELECT name FROM customers_jan;
+
+
+ </pre>                   
+                    
+                  </figure>
+                </div>	
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+	
+	</div>
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/lightbox.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script>
+      //according to loftblog tut
+      $(".main-menu li:first").addClass("active");
+
+      var showSection = function showSection(section, isAnimate) {
+        var direction = section.replace(/#/, ""),
+          reqSection = $(".section").filter(
+            '[data-section="' + direction + '"]'
+          ),
+          reqSectionPos = reqSection.offset().top - 0;
+
+        if (isAnimate) {
+          $("body, html").animate(
+            {
+              scrollTop: reqSectionPos
+            },
+            800
+          );
+        } else {
+          $("body, html").scrollTop(reqSectionPos);
+        }
+      };
+
+      var checkSection = function checkSection() {
+        $(".section").each(function() {
+          var $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+          if (topEdge < wScroll && bottomEdge > wScroll) {
+            var currentId = $this.data("section"),
+              reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+            reqLink
+              .closest("li")
+              .addClass("active")
+              .siblings()
+              .removeClass("active");
+          }
+        });
+      };
+
+      $(".main-menu").on("click", "a", function(e) {
+        e.preventDefault();
+        showSection($(this).attr("href"), true);
+      });
+
+      $(window).scroll(function() {
+        checkSection();
+      });
+    </script>
+  </body>
+</html>
