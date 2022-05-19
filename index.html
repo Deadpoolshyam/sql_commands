@@ -611,6 +611,15 @@ DELETE FROM &lt;TABLE NAME&gt;
                   />
                   <span>Set Operators</span></label
                 >
+				
+				<label
+                  ><input
+                    type="radio"
+                    data-type="Rank"
+                    name="isotope-filter"
+                  />
+                  <span>Rank</span></label
+                >
               </form>
               <div class="isotope-box">
                 <div class="isotope-item" data-type="Contraines" style="width: 100% !important;">
@@ -1014,7 +1023,115 @@ SELECT name FROM customers_jan;
                     
                   </figure>
                 </div>	
-                
+  
+<div class="isotope-item" data-type="Rank"  style="width: 100% !important;">
+                  <figure class="">
+<pre>
+<b>OLAP Functions
+--------------</b>
+CASE
+RANK()
+DENSE_RANK()
+ROW_NUMBER()
+
+<b>CASE
+-------</b>
+
+select &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, case 
+&lt;COLUMN NAME&gt;	when  '&lt;VALUE&gt;' then '&lt;VALUE&gt;' 
+	else &lt;COLUMN NAME&gt; 
+	end as &lt;alias name&gt; from &lt;TABLE NAME&gt;;
+
+
+if we miss else hear it update other columns to NULL
+<b>LIKE
+------</b>
+select CustomerName, Branch_name, case 
+branch_name	when  'Hyd' then 'hyderabad' 
+	else branch_name 
+	end as updated_city_name from Accounts;
+	
+<b>RANK()
+--------</b>
+ SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, RANK() OVER(ORDER BY DESC (or) ASC) 
+  as &lt;ANY NAME&gt; FROM &lt;TABLE NAME&gt;
+ 
+<b> like 
+--------</b>
+select marks, name , rank() over (order by marks desc) as filt_marks
+from student TABLE
+
+<b>RANK() OUTPUT					
+-----------------</b>
+marks	filt_marks
+90			1
+89			2
+89			2
+89			2
+81			5
+60			6
+55			7
+55			7
+55			7
+12			9
+ 
+<b>DENSE_RANK()
+----------------</b>
+
+SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, DENSE_RANK() OVER(ORDER BY DESC (or) ASC) 
+  as &lt;ANY NAME&gt; FROM &lt;TABLE NAME&gt;
+ 
+<b> like 
+--------</b>
+select marks, name , DENSE_RANK() over (order by marks desc) as filt_marks
+from student TABLE
+
+<b>DENSE_RANK() OUTPUT
+-----------------</b>
+marks	filt_marks
+90			1
+89			2
+89			2
+89			2
+81			3
+60			4
+55			5
+55			6
+55			6
+12			7
+
+
+<b>ROW_NUMBER()
+--------------</b>
+ SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, ROW_NUMBER() OVER(ORDER BY DESC (or) ASC) 
+  as &lt;ANY NAME&gt; FROM &lt;TABLE NAME&gt;
+
+<b> like 
+--------</b>
+select marks, name , ROW_NUMBER() over (order by marks desc) as filt_marks
+from student TABLE
+
+<b>ROW_NUMBER() OUTPUT
+----------------------</b>
+marks	filt_marks
+90			1
+89			2
+89			3
+89			4
+81			5
+60			6
+55			7
+55			8
+55			9
+12			10
+
+
+ 
+
+ </pre>                   
+                    
+                  </figure>
+                </div>  
               </div>
             </div>
           </div>
