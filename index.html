@@ -136,6 +136,10 @@
 ------------------</b>
 CREATE DATABASE &lt;DB name&gt;;
 
+<b> check table is there or not
+------------------------------</b>
+sp_help &lt;TABLE name&gt;; (sql server)
+desc &lt;TABLE name&gt;; (Orcle)
 <b>TABLE creation
 --------------</b>
 CREATE TABLE &lt;TABLE name&gt; (
@@ -639,6 +643,15 @@ DELETE FROM &lt;TABLE NAME&gt;
                   <span>Nested subqueries</span></label
                 >
 				
+				<label
+                  ><input
+                    type="radio"
+                    data-type="foreignkey"
+                    name="isotope-filter"
+                  />
+                  <span>find foreign key</span></label
+                >
+				
               </form>
               <div class="isotope-box">
                 <div class="isotope-item" data-type="Contraines" style="width: 100% !important;">
@@ -656,7 +669,7 @@ CHECK
 <b>primary KEY
 ------------------</b>
 CREATE TABLE &lt;TABLE name&gt; (
-	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt; PRIMARY KEY IDENTIFIED 
+	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt; PRIMARY KEY IDENTITY(1,1)
 	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt; not NULL,
 	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt;
 );
@@ -679,7 +692,7 @@ create table student
 <b>primary KEY
 ------------------</b>
 CREATE TABLE &lt;TABLE name&gt; (
-	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt; PRIMARY KEY IDENTIFIED 
+	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt; PRIMARY KEY IDENTITY(1,1)
 	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt; not NULL,
 	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt;
 );
@@ -692,10 +705,10 @@ CREATE TABLE &lt;TABLE name&gt; (
 	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt;
 );
 
-<b>AUTO_INCREMENT won't work in SQL server insted of AUTO_INCREMENT we can USE  IDENTIFIED in SQL server
+<b>AUTO_INCREMENT won't work in SQL server insted of AUTO_INCREMENT we can USE  IDENTITY in SQL server
 --------------------------------------------------------------------------------------------------------</b>
 CREATE TABLE &lt;TABLE name&gt; (
-	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt; PRIMARY KEY IDENTIFIED 
+	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt; PRIMARY KEY IDENTITY(1,1)
 	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt;,
 	&lt;column_name&gt; &lt;DATATYPE&gt;&lt;length&gt;
 );
@@ -1072,7 +1085,7 @@ branch_name	when  'Hyd' then 'hyderabad'
 	
 <b>RANK()
 --------</b>
- SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, RANK() OVER(ORDER BY DESC (or) ASC) 
+ SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, RANK() OVER(ORDER BY &lt;COLUMN NAME&gt; DESC (or) ASC) 
   as &lt;ANY NAME&gt; FROM &lt;TABLE NAME&gt;
  
 <b> like 
@@ -1097,7 +1110,7 @@ marks	filt_marks
 <b>DENSE_RANK()
 ----------------</b>
 
-SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, DENSE_RANK() OVER(ORDER BY DESC (or) ASC) 
+SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, DENSE_RANK() OVER(ORDER BY &lt;COLUMN NAME&gt; DESC (or) ASC) 
   as &lt;ANY NAME&gt; FROM &lt;TABLE NAME&gt;
  
 <b> like 
@@ -1122,7 +1135,7 @@ marks	filt_marks
 
 <b>ROW_NUMBER()
 --------------</b>
- SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, ROW_NUMBER() OVER(ORDER BY DESC (or) ASC) 
+ SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, ROW_NUMBER() OVER(ORDER BY &lt;COLUMN NAME&gt; DESC (or) ASC) 
   as &lt;ANY NAME&gt; FROM &lt;TABLE NAME&gt;
 
 <b> like 
@@ -1204,6 +1217,22 @@ select customer_id, first_name from sales.customers where customer_id = 7;
                   </figure>
                 </div>  
 
+<div class="isotope-item" data-type="foreignkey"  style="width: 100% !important;">
+                  <figure class="">
+<pre>
+<b>find foreign key
+------------------</b>
+SELECT
+  object_name(parent_object_id) ParentTableName,
+  object_name(referenced_object_id) RefTableName,
+  name 
+FROM sys.foreign_keys
+WHERE parent_object_id = object_id('&lt;TABLE NAME&gt;')
+ </pre>                   
+                    
+                  </figure>
+                </div>
+				
 			 </div>
             </div>
           </div>
