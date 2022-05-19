@@ -620,6 +620,25 @@ DELETE FROM &lt;TABLE NAME&gt;
                   />
                   <span>Rank</span></label
                 >
+				
+				<label
+                  ><input
+                    type="radio"
+                    data-type="Duplicate"
+                    name="isotope-filter"
+                  />
+                  <span>Check Duplicates</span></label
+                >
+				
+				<label
+                  ><input
+                    type="radio"
+                    data-type="Nested"
+                    name="isotope-filter"
+                  />
+                  <span>Nested subqueries</span></label
+                >
+				
               </form>
               <div class="isotope-box">
                 <div class="isotope-item" data-type="Contraines" style="width: 100% !important;">
@@ -701,7 +720,7 @@ create table stu_details (
  </pre>  
                   </figure>
                 </div>
-				<div class="isotope-item" data-type="WHERE"  style="width: 100% !important;">
+<div class="isotope-item" data-type="WHERE"  style="width: 100% !important;">
                   <figure class="">
 <pre>
 <b>WHERE Condition
@@ -1132,7 +1151,60 @@ marks	filt_marks
                     
                   </figure>
                 </div>  
-              </div>
+<div class="isotope-item" data-type="Duplicate"  style="width: 100% !important;">
+                  <figure class="">
+<pre>
+<b>duplicates
+-------------</b>
+	
+SELECT &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt;, COUNT(&lt;COLUMN NAME&gt;) 
+FROM &lt;TABLE NAME&gt; 
+GROUP BY &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt; 
+HAVING COUNT(&lt;COLUMN NAME&gt;) > 1
+
+<b>like
+-------</b>
+SELECT first_name, email, COUNT(*)
+FROM sales.customers
+GROUP BY first_name, email
+HAVING COUNT(*) > 1
+
+ </pre>                   
+                    
+                  </figure>
+                </div>             
+
+<div class="isotope-item" data-type="Nested"  style="width: 100% !important;">
+                  <figure class="">
+<pre>
+<b>Nested subqueries
+--------------------</b>
+	
+select &lt;COLUMN NAME&gt;, &lt;COLUMN NAME&gt; 
+from &lt;TABLE NAME&gt; where &lt;COLUMN NAME&gt; = any
+(select &lt;COLUMN NAME&gt; from &lt;Another TABLE NAME&gt;);
+
+<b>like
+-------</b>
+select count(staff_id), staff_id from sales.orders group by staff_id 
+having count(staff_id) > 1
+
+<b>Example 
+-----------</b>
+select * from sales.customers
+select * from sales.orders
+select customer_id, first_name from sales.customers where customer_id = 7;
+
+
+
+
+
+ </pre>                   
+                    
+                  </figure>
+                </div>  
+
+			 </div>
             </div>
           </div>
         </div>
