@@ -54,6 +54,7 @@
                 <li><a href="#section3">DML (Data Manipulation Language)</a></li>
                 <li><a href="#section4">DCL & TCL</a></li>
                 <li><a href="#section5">Advanced</a></li>
+                <li><a href="#section6">advanced query</a></li>
               </ul>
             </nav>
             
@@ -1239,6 +1240,369 @@ WHERE parent_object_id = object_id('&lt;TABLE NAME&gt;')
         </div>
       </section>
 	
+	<section class="section my-work" data-section="section6">
+        <div class="container">
+          <div class="section-heading">
+            <b><h3>advanced query</h3>
+			-------------------------</b>
+<pre>
+<span>
+(this is only for practice)before run the querys create a table like this.
+</span>
+CREATE TABLE CITI_EMP_INFO (
+Emp_id bigint,
+Emp_first_name varchar(15),
+Emp_last_name varchar(15), 
+Emp_full_name varchar(18), 
+Emp_gender varchar(8), 
+Emp_sal bigint, 
+Emp_comm bigint, 
+Dept_name varchar(10), 
+Emp_loc varchar(10), 
+Email varchar(25),
+Emp_pan_no varchar(11),
+Contact_no bigint,
+Landline_no bigint,
+Alternate_no bigint
+)
+
+
+INSERT INTO CITI_EMP_INFO VALUES (40321,'JOSEPH','LIVINGSTON', 'JOSEPH.LIVINGSTON','MALE',40000,100,'ADMIN','ATLANTA','OSEPH.L @INFOSYS.COM','DGHSP8976R',9877563425,0405678392,NULL); 
+INSERT INTO CITI_EMP_INFO VALUES (40322,'KENNEDY', 'LOPEZ','KENNEDY.LOPEZ', 'FEMALE',45000, 105, 'IT', 'SYDNEY','KENNEDY.L@ ORIGIN.COM','UGHFT1123T',89766475648,NULL,0805674382); 
+INSERT INTO CITI_EMP_INFO VALUES (40323,'BRUCE','ERNST', 'BRUCE.ERNST','MALE',30000,100,'NETWORK','NEWJERSY','BRUCE.E @CAPT.COM','HJFGTE896W',NULL,0405673245,NULL); 
+INSERT INTO CITI_EMP_INFO VALUES (40324, 'DAVID','AUSTIN','DAVID.AUSTIN', 'MALE',50000,110, 'ADMIN','CALFORNIA', 'DAVID.A @ZEISS.COM','DGFHP34256',NULL,NULL,8769456329);
+INSERT INTO CITI_EMP_INFO VALUES (40325, 'DIANA', 'LORENTZ', 'DIANA.LORENTZ', 'FEMALE',35000,90, 'HR','ILLUNIOUS', 'DIANA.L@ GCAP.COM','GHTFR5674W',7895643425,0205611192,8756493024);
+INSERT INTO CITI_EMP_INFO VALUES (40326,'DANIEL','EAVIET','DANIEL.EAVIET','MALE',55000,NULL,'IT', 'MICHIGAN','DANIEL.E@SY MANTEC.COM','ERHSP76R',8877576548, NULL, 775638292);
+INSERT INTO CITI_EMP_INFO VALUES (40327,'NANCY', 'LOL','NANCY.LOL','FEMALE',40000, 100, 'NETWORK','NEBRASKA','NANCY.L@I THINK.COM','PKLJUE78655',7865432425,0305198393,8763265743);
+INSERT INTO CITI_EMP_INFO VALUES (40328,'STEVEN','KING','STEVEN.KING','MALE',36000,NULL,'HR', 'ATLANTA','STEVEN.K@INTUI T.COM','RFHSP4976E',9877342985,0403245392,76768594);
+INSERT INTO CITI_EMP_INFO VALUES (40329,'JOHN','CHEN', 'JOHN.CHEN','MALE',45000,NULL,'NETWORK','DALLAS', 'JOHN.C@COMPASS.COM','RTED6576W',8760554632,0305671192,NULL);
+INSERT INTO CITI_EMP_INFO VALUES (40330,'BRITNEY','ROSE','BRITNEY.ROSE','FEMALE',48000,NULL,'HR', 'NEWYORK','BRITNEY.R@ DELL.COM','DDERP8336P',8877563115,0305665691,8897056564);
+
+</pre>
+            <div class="line-dec"></div>
+            
+          </div>
+          <div class="row">
+            <div class="isotope-wrapper">
+              <form class="isotope-toolbar">
+                <label
+                  ><input
+                    type="radio"
+                    data-type="*"
+                    checked=""
+                    name="isotope-filter"
+                  />
+                  <span>all</span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    data-type="CAST"
+                    name="isotope-filter"
+                  />
+                  <span>CAST</span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    data-type="substring"
+                    name="isotope-filter"
+                  />
+                  <span>substring</span></label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    data-type="CHARINDEX"
+                    name="isotope-filter"
+                  />
+                  <span>CHARINDEX</span></label
+                >
+				<label
+                  ><input
+                    type="radio"
+                    data-type="COALESCE"
+                    name="isotope-filter"
+                  />
+                  <span>COALESCE()</span></label
+                >
+				<label
+                  ><input
+                    type="radio"
+                    data-type="length"
+                    name="isotope-filter"
+                  />
+                  <span>length (or) len</span></label
+                >
+				<label    
+                  ><input
+                    type="radio"
+                    data-type="advanced_query"
+                    name="isotope-filter"
+                  />
+                  <span>advanced query</span></label
+                >
+              </form>
+              <div class="isotope-box">
+                <div class="isotope-item" data-type="CAST" style="width: 100% !important;">
+                  <figure class="">
+                    <pre>
+<b>CAST()
+-------</b>
+<span>The CAST() function converts a value (of any type) into a specified datatype.</span>
+
+
+<b>like
+-------</b>
+CAST(Contact_no AS varchar(38))
+
+CAST(Contact_no AS varchar(38))
+hear Contact_no is INTEGER now its varchar
+
+
+
+ </pre>  
+                  </figure>
+                </div>
+
+                <div class="isotope-item" data-type="substring" style="width: 100% !important;">
+                  <figure class="">
+                    <pre>
+<b>substring()
+--------------</b>
+<span>The SUBSTRING() function extracts some characters from a string.</span>
+SUBSTRING(substring, start, length)
+
+
+<b>like
+--------</b>
+SELECT SUBSTRING('SQL Tutorial', 1, 3) AS ExtractString;
+it extract the ('SQL Tutorial')text using (1)start num, and (3)end 
+
+ </pre>  
+                  </figure>
+                </div>
+
+                <div class="isotope-item" data-type="CHARINDEX" style="width: 100% !important;">
+                  <figure class="">
+                    <pre>
+<b>CHARINDEX()
+------------</b>
+<span>The CHARINDEX() function searches for a substring in a string, and returns the position.</span>
+CHARINDEX(string, 'Customer') AS MatchPosition;
+
+<b>like
+--------</b>
+SELECT CHARINDEX('t', substring) AS MatchPosition;
+
+
+
+ </pre>  
+                  </figure>
+                </div>
+
+          <div class="isotope-item" data-type="COALESCE" style="width: 100% !important;">
+                  <figure class="">
+                    <pre>
+<b>COALESCE()
+--------------</b>
+<span>The COALESCE() function returns the first non-null value in a list.</span>
+COALESCE(val1, val2, ...., val_n)
+
+<b>like
+--------</b>
+SELECT COALESCE(NULL, NULL, NULL, 'W3Schools.com', NULL, 'Example.com');
+
+ </pre>  
+                  </figure>
+                </div>
+		  
+		  
+		  <div class="isotope-item" data-type="length" style="width: 100% !important;">
+                  <figure class="">
+                    <pre>
+<b>length() (or) len()
+----------------------</b>
+<span>The LEN() function returns the length of a string.</span>
+LEN('substring')
+
+<b>like
+--------</b>
+SELECT LEN('W3Schools.com');
+
+ </pre>  
+                  </figure>
+                </div>
+	
+	<div class="isotope-item" data-type="advanced_query" style="width: 100% !important;">
+                  <figure class="">
+                    <pre>
+<b>advanced query
+-------------------</b>
+
+<b>extract f_name and l_name fropm full_name
+---------------------------------------------</b>
+select CONCAT(
+(select substring('Firstname Lastname',1,CHARINDEX(' ', 'Firstname Lastname')) as firstname) , 
+(Select substring('Firstname Lastname',CHARINDEX(' ', 'Firstname Lastname'),LEN('Firstname Lastname')) as Lastname)
+) as new
+	
+	
+<b> find exact domain
+----------------------</b>
+select * from CITI_EMP_INFO where email like '%@INFOSYS%';
+
+<b>find 2nd higheest VALUE
+---------------------------</b>
+select max(marks) as new_marks from marks where marks< (select max(marks) from marks);
+ 
+<b>find nth higheest value from TABLE
+ -------------------------------------</b>
+select * from marks;
+select id, marks, dense_rank() 
+over(order by marks desc)r from marks;
+select * from(
+select id, marks, dense_rank() 
+over(order by marks desc)r from marks) as nn where r=3;
+
+
+
+<b>change perticular char into speciial CHAR
+--------------------------------------------</b>
+select emp_id, emp_first_name, replace(emp_first_name, substring(emp_first_name,2,1), '#') 
+ from CITI_EMP_INFO;
+
+
+<b>change string in to special char exept 1st letter
+-----------------------------------------------------</b>
+select emp_id,Emp_first_name, CONCAT(substring(emp_first_name,1,1) , REPLICATE('*', len(emp_first_name)-1)) as new
+from CITI_EMP_INFO;
+
+<b>(or)</b>
+
+select emp_id, Emp_first_name
+, CONCAT(left(emp_first_name,1),REPLICATE('*', len(emp_first_name)-1)) as starts 
+from CITI_EMP_INFO;
+
+<b>change string in to special char except last letter
+-------------------------------------------------------</b>
+select emp_id, Emp_first_name
+, CONCAT(REPLICATE('*', len(emp_first_name)-1), right(emp_first_name,1)) as starts 
+from CITI_EMP_INFO;
+
+
+<b>print special char after last_name upto lenth of highest len of lastname
+----------------------------------------------------------------------------</b>
+select 
+CONCAT(
+(Emp_last_name), 
+REPLICATE('*', (select max(len(Emp_last_name)) from CITI_EMP_INFO))
+--(select max(len(Emp_last_name)) from CITI_EMP_INFO)
+) 
+from CITI_EMP_INFO
+
+
+
+<b>find first or last char in string
+-------------------------------------</b>
+select right('abc', 1)
+select left('abc' , 2)
+
+
+<b>how to calculate particular char occurence count in a string
+----------------------------------------------------------------</b>
+select 
+len('apppple')
+-
+len(replace('apppple','p','')) as "No of occurence of p"
+
+
+<b>create email_ids based on emp_first name, emp_contact NUMBER
+---------------------------------------------------------------</b>
+
+select 
+Emp_first_name,Contact_no
+, CONCAT(
+SUBSTRING(Emp_first_name,1,3)
+,SUBSTRING(CAST(Contact_no AS varchar(38)),1,3)
+,'@gmail.com'
+) as emp_mails
+from CITI_EMP_INFO;
+
+
+<b>pad with special char(*) to the left of emp_name for 3 places, and pad with @ to the right side of emp_name , remaining places by talking first 3 char of emp_names
+--------------------------------------------------------------------------------</b>
+select emp_first_name
+, SUBSTRING(Emp_first_name,1,3) as f_3
+, SUBSTRING(Emp_first_name,4,3) as f_6
+from CITI_EMP_INFO;
+
+
+select emp_first_name
+,REPLICATE('*', len(SUBSTRING(Emp_first_name,1,3))) as f_3
+,REPLICATE('@', len(substring(emp_first_name,4,3))) as f_6
+,SUBSTRING(Emp_first_name,1,3) as f_3_char
+from CITI_EMP_INFO;
+
+select Emp_first_name
+,CONCAT(
+REPLICATE('*', len(SUBSTRING(Emp_first_name,1,3)))
+,REPLICATE('@', len(substring(emp_first_name,4,3))) 
+,SUBSTRING(Emp_first_name,1,3)
+) as final_res
+from CITI_EMP_INFO;
+
+
+<b>display EMP last name starts with particulat 'L' letter
+----------------------------------------------------------</b>
+
+select 
+Emp_last_name 
+from CITI_EMP_INFO
+where 
+emp_last_name like 'L%';
+
+<b>display EMP last name end's with particulat 'L' letter
+---------------------------------------------------------</b>
+
+select 
+Emp_last_name 
+from CITI_EMP_INFO
+where 
+emp_last_name like '%N';
+
+
+<b>display EMP last name WHOSE 2ND CHAR STARTS WITH 'o'
+-------------------------------------------------------</b>
+SELECT 
+Emp_last_name 
+FROM CITI_EMP_INFO
+WHERE Emp_last_name LIKE '_o%';
+
+
+<b>display pan number contains first 5 alphabits next 4 numbers next alphabits 
+-------------------------------------------------------------------------------</b>
+SELECT 
+Emp_pan_no
+FROM CITI_EMP_INFO
+where  
+Emp_pan_no like '[A-Z][A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][A-Z]'
+
+
+<b>COALESCE
+------------</b>
+SELECT COALESCE (NULL,'A','B');
+SELECT COALESCE (NULL,20,100,30,40);
+
+ </pre>  
+                  </figure>
+                </div>
+				
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 	</div>
 
     <!-- Scripts -->
