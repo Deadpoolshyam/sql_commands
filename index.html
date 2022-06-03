@@ -1594,20 +1594,20 @@ Emp_pan_no like '[A-Z][A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][A-Z]'
 SELECT COALESCE (NULL,'A','B');
 SELECT COALESCE (NULL,20,100,30,40);
 
-<b> find missing numbers from column
+<b>find missing numbers from column
 ------------------------------------</b>
 WITH Missing (missnum, maxid)
 AS
 (
- SELECT 1 AS missnum, (select max(id) from <table name>)
+ SELECT 1 AS missnum, (select max(&lt;Column name&gt;) from &lt;table name&gt;)
  UNION ALL
  SELECT missnum + 1, maxid FROM Missing
  WHERE missnum < maxid
 )
 SELECT missnum
 FROM Missing
-LEFT OUTER JOIN <table name> tt on tt.id = Missing.missnum
-WHERE tt.id is NULL
+LEFT OUTER JOIN &lt;table name&gt; tt on tt.&lt;column name&gt; = Missing.missnum
+WHERE tt.&lt;column name&gt; is NULL
 OPTION (MAXRECURSION 0); 
 
 
