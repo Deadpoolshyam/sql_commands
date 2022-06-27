@@ -1611,6 +1611,22 @@ WHERE tt.&lt;column name&gt; is NULL
 OPTION (MAXRECURSION 0); 
 
 
+
+
+<b>Delete Duplicate Rows from TABLE
+-----------------------------------</b>
+with delete_dums as 
+	(select &lt;Column name&gt;, ROW_NUMBER() over (
+		PARTITION  by
+			&lt;Column name&gt;
+		order by
+			&lt;Column name&gt;
+	) as final_rows
+	FROM &lt;table name&gt;
+	)
+	DELETE FROM delete_dums
+	where final_rows > 1;
+
  </pre>  
                   </figure>
                 </div>
