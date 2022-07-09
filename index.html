@@ -1626,6 +1626,31 @@ with delete_dums as
 	)
 	DELETE FROM delete_dums
 	where final_rows > 1;
+	
+	
+	
+<b>display first and last record from TABLE
+-----------------------------------</b>
+with new_table as (
+select &lt;Column name&gt;, Dense_rank() over(order by &lt;Column name&gt;) as New_row from &lt;table name&gt; 
+)
+select &lt;Column name&gt;, new_row from new_table where New_row = 1 
+OR New_row =  ( select top(1) New_row  from new_table order by new_row desc)  ;
+
+like
+-----
+with new_table as (
+select emp_sal, Dense_rank() over(order by emp_sal) as New_row from CITI_EMP_INFO 
+)
+select emp_sal, new_row from new_table where New_row = 1 
+OR New_row =  ( select top(1) New_row  from new_table order by new_row desc)  ;
+
+
+<b>display records based on percentage
+-----------------------------------</b>
+select top 30 percent * from [CITI_EMP_INFO];
+	
+
 
  </pre>  
                   </figure>
